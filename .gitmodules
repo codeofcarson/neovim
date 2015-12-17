@@ -1,0 +1,24 @@
+[submodule "ext/vim-pathogen"]
+	path = ext/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+	branch = master
+[submodule "share/bundle/detectindent"]
+	path = share/bundle/detectindent
+	url = https://github.com/roryokane/detectindent
+	branch = master
+[submodule "share/bundle/vim-kalisi"]
+	path = share/bundle/vim-kalisi
+	url = https://github.com/freeo/vim-kalisi
+	branch = master
+[submodule "share/bundle/YouCompleteMe"]
+	path = share/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+	branch = master
+[submodule "share/bundle/vim-bbye"]
+	path = share/bundle/vim-bbye
+	url = https://github.com/moll/vim-bbye.git
+	branch = master
+[submodule "share/bundle/vim-hardtime"]
+	path = share/bundle/vim-hardtime
+	url = https://github.com/takac/vim-hardtime.git
+	branch = master

@@ -1,0 +1,1 @@
+../../ext/vim-pathogen/autoload/pathogen.vim
