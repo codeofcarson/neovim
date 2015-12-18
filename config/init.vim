@@ -1,11 +1,5 @@
 call pathogen#infect()
 
-" Correct color mode
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Change cursor shape
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 " Dark background by default
 set background=dark
 
@@ -84,6 +78,11 @@ let g:hardtime_allow_different_key = 1
 
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>",
   \                          "<DOWN>", "<LEFT>", "<RIGHT>", "<CR>"]
+
+" Airline configuration
+let g:airline_theme='kalisi'
+let g:airline_powerline_fonts=1
+set noshowmode
 
 " Better Code Folding
 set foldlevelstart=99 foldtext=CustomFoldText() foldmethod=syntax

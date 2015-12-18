@@ -22,3 +22,19 @@
 	path = share/bundle/vim-hardtime
 	url = https://github.com/takac/vim-hardtime.git
 	branch = master
+[submodule "share/bundle/vim-airline"]
+	path = share/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+	branch = master
+[submodule "share/bundle/vim-fugitive"]
+	path = share/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+	branch = master
+[submodule "share/bundle/vim-bufferline"]
+	path = share/bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline
+	branch = master
+[submodule "share/bundle/vim-signify"]
+	path = share/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify
+	branch = master
