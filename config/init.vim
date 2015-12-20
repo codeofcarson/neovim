@@ -1,91 +1,116 @@
-call pathogen#infect()
+"------------------------------------------------------------------------------"
+" Neovim Configuration                                                         "
+"------------------------------------------------------------------------------"
 
-" Dark background by default
-set background=dark
+" Pathogen
+" https://github.com/tpope/vim-pathogen
+"
+" A vim plugin manager that makes it super easy to install plugins and runtime
+" files in their own private directories.
+call pathogen#infect()                            " Initialize Pathogen
 
-" Set the colorscheme
-colorscheme kalisi
+" Theme
+" https://github.com/freeo/vim-kalisi
+"
+" A theme designed with neovim in mind.
+set background=dark                               " Use dark version of theme.
+colorscheme kalisi                                " Use kalisi color scheme.
 
-" Backspace
-set backspace=indent,eol,start
+" Tweeks
+"
+" Small changes that make vim a little easier to use.
+syntax on                                         " Enable syntax highlighting.
+set wildchar=<Tab> wildmenu wildmode=longest,list " Bash-like completion.
+set backspace=indent,eol,start                    " Backspace anything!
+set expandtab                                     " Use spaces by default.
+set hidden                                        " Switch buffers w/o saving.
+set completeopt-=preview                          " Disable completion preview.
+set splitright                                    " Open new split to the right.
+set nohlsearch                                    " Disable highlight search.
+set relativenumber                                " Show relative line numbers.
+set number                                        " On current line, show
+                                                  " absolute line number.
 
-" Enable syntax
-syntax on
+" DetectIndent
+" https://github.com/roryokane/detectindent
+"
+" Uses fancy algorithms to try and figure out what style of indentation the
+" current buffer uses.
+let g:detectindent_preferred_indent = 4           " 4 spaces by default.
+autocmd BufReadPost * :DetectIndent               " After reading buffer, detect
+                                                  " indentation.
 
-" Show line numbers
-set number
+" Filetype
+"
+" Detects the type of the current file based of the extension and contents,
+" and perform actions.
+filetype on                                       " Enable the plugin.
+filetype plugin on                                " Load filetype specific
+                                                  " plugins.
 
-" Allow switching buffers without saving
-set hidden
-
-" Indentation detection
-set expandtab
-let g:detectindent_preferred_indent = 4
-autocmd BufReadPost * :DetectIndent
-
-" Bash-ish command completion
-set wildchar=<Tab> wildmenu wildmode=longest,list
-
-" Enable filetype detection and plugins
-filetype on
-filetype plugin on
-
-" Track window creation
+" Highlight Trailing Whitespace
+"
+" Track which buffers have been created, and set the highlighting only once.
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
-
-" Highlight end of line whitespace
 highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
 autocmd WinEnter *
-	\ if !exists('w:created') | call matchadd('WhitespaceEOL', '\s\+$') | endif
+  \ if !exists('w:created') | call matchadd('WhitespaceEOL', '\s\+$') | endif
 call matchadd('WhitespaceEOL', '\s\+$')
 
-" Highlight the background of long lines
+" Highlight Past Column 80
+"
+" Change the background color past column 80 to indicate you've typed too
+" much.
 highlight ColorColumn ctermbg=239 guibg=#39393b
 execute "set colorcolumn=" . join(range(81,335), ',')
 
-" Completion options
-set completeopt-=preview
-
-" Open new splits to the right
-set splitright
-
-" Disable highlighting in search
-set nohlsearch
-
-" Use relative line numbers
-set relativenumber
-set number
-
-" Exit terminal with <Esc>
-tnoremap <Esc> <C-\><C-n>
+" Embedded Terminal
+"
+" Neovim supports an embedded terminal with :terminal, these tweaks make it a
+" little easier to work with.
+tnoremap <Esc> <C-\><C-n>                         " Exit terminal with <Esc>
 
 " Add tsplit command to open a new terminal in a split
 if !exists(":tsplit")
-	command -nargs=? Tsplit vsplit | terminal <args>
-	ca tsplit Tsplit
+  command -nargs=? Tsplit vsplit | terminal <args>
+  ca tsplit Tsplit
 endif
 
 " Relative line numbers in terminal (set nonumber to keep margin fixed size)
 autocmd TermOpen * set nonumber relativenumber
 
-" Hardtime Configuration
+" Hardtime
+" https://github.com/takac/vim-hardtime
+"
+" Break bad vim patterns, forces you to use better movement keys.
 autocmd VimEnter,BufNewFile,BufReadPost * silent! HardTimeOn
-nnoremap <leader>h <Esc>:HardTimeToggle<CR>
+nnoremap <leader>h <Esc>:HardTimeToggle<CR>       " Toggle hardtime with <leader>h.
+let g:hardtime_ignore_quickfix = 1                " Disable in quickfix windows.
+let g:hardtime_allow_different_key = 1            " Allow different keys in succession.
 
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_allow_different_key = 1
+let g:list_of_normal_keys = ["h", "j", "k", "l",
+  \                          "-", "+", "<UP>",
+  \                          "<DOWN>", "<LEFT>",
+  \                          "<RIGHT>", "<CR>"]   " Which keys to lock.
 
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>",
-  \                          "<DOWN>", "<LEFT>", "<RIGHT>", "<CR>"]
+" Airline
+" https://github.com/bling/vim-airline
+" https://github.com/powerline/fonts
+"
+" Sweet looking status line. Requires powerline fonts to be enabled in your
+" terminal.
+let g:airline_theme='kalisi'                      " Use the kalisi theme!
+let g:airline_powerline_fonts=1                   " Enable powerline fonts.
+set noshowmode                                    " Don't show mode in command line.
 
-" Airline configuration
-let g:airline_theme='kalisi'
-let g:airline_powerline_fonts=1
-set noshowmode
-
-" Better Code Folding
-set foldlevelstart=99 foldtext=CustomFoldText() foldmethod=syntax
+" Custom Code Folding
+"
+" Vim's default fold text isn't super useful, so we replace it with something
+" a little better.
+set foldlevelstart=99                             " Expand all folds by default.
+set foldtext=CustomFoldText()                     " Enable our sweet fold text.
+set foldmethod=syntax                             " Fold based on syntax.
 function! CustomFoldText()
   " Get the first non-blank line
   let fs = v:foldstart
@@ -120,3 +145,4 @@ function! CustomFoldText()
   let expansionString = repeat(" ", w - strwidth(foldSizeStr.line))
   return line . expansionString . foldSizeStr
 endfunction
+" vim: set et ts=2 sw=2:
