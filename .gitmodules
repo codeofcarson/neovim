@@ -38,3 +38,6 @@
 	path = share/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify
 	branch = master
+[submodule "share/bundle/vim-scala"]
+	path = share/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
