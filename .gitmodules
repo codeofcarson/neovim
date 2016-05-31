@@ -41,3 +41,7 @@
 [submodule "share/bundle/vim-scala"]
 	path = share/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala
+[submodule "share/bundle/vim-airline-themes"]
+	path = share/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+	branch = master
