@@ -23,6 +23,7 @@ syntax on                                         " Enable syntax highlighting.
 set wildchar=<Tab> wildmenu wildmode=longest,list " Bash-like completion.
 set backspace=indent,eol,start                    " Backspace anything!
 set expandtab                                     " Use spaces by default.
+set smartindent                                   " Better indentation.
 set hidden                                        " Switch buffers w/o saving.
 set completeopt-=preview                          " Disable completion preview.
 set splitright                                    " Open new split to the right.
@@ -45,6 +46,7 @@ autocmd BufReadPost * :DetectIndent               " After reading buffer, detect
 " Detects the type of the current file based of the extension and contents,
 " and perform actions.
 filetype on                                       " Enable the plugin.
+filetype indent on                                " Better indentation.
 filetype plugin on                                " Load filetype specific
                                                   " plugins.
 
@@ -103,6 +105,13 @@ let g:list_of_normal_keys = ["h", "j", "k", "l",
 let g:airline_theme='kalisi'                      " Use the kalisi theme!
 let g:airline_powerline_fonts=1                   " Enable powerline fonts.
 set noshowmode                                    " Don't show mode in command line.
+
+" YouCompleteMe
+" https://github.com/Valloric/YouCompleteMe
+"
+" Code completion, everywhere.
+nnoremap <leader>jd <Esc>:YcmCompleter GoTo<CR>   " Jump to definition.
+let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/site/ycm_extra_conf.py'
 
 " Custom Code Folding
 "
