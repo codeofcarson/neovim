@@ -79,8 +79,9 @@ if !exists(":tsplit")
   ca tsplit Tsplit
 endif
 
-" Relative line numbers in terminal (set nonumber to keep margin fixed size)
-autocmd TermOpen * set nonumber relativenumber
+"" Pending https://github.com/neovim/neovim/issues/5310
+"" Relative line numbers in terminal (set nonumber to keep margin fixed size)
+"autocmd TermOpen * set nonumber relativenumber
 
 " Hardtime
 " https://github.com/takac/vim-hardtime
