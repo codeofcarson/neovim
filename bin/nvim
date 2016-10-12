@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Simple wrapper around nvr and neovim that, when called from a neovim terminal, will
+# open the file in the parent neovim, instead of nesting.
+#
+
+set -e
+if [ -z "$NVIM_LISTEN_ADDRESS" ]; then
+    exec nvim.real "$@"
+elif command -v nvr > /dev/null; then
+    exec nvr --remote-wait "$@"
+else
+    exec nvim.real "$@"
+fi
