@@ -113,6 +113,10 @@ set noshowmode                                    " Don't show mode in command l
 nnoremap <leader>jd <Esc>:YcmCompleter GoTo<CR>   " Jump to definition.
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/site/ycm_extra_conf.py'
 
+" Eclim
+"
+let g:EclimCompletionMethod = 'omnifunc'          " Required for YCM to work.
+
 " Custom Code Folding
 "
 " Vim's default fold text isn't super useful, so we replace it with something
