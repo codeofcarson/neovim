@@ -49,3 +49,11 @@
 	path = share/bundle/vim-eclim
 	url = https://github.com/starcraftman/vim-eclim
 	branch = master
+[submodule "share/bundle/vim-pug"]
+	path = share/bundle/vim-pug
+	url = https://github.com/digitaltoad/vim-pug
+	branch = master
+[submodule "share/bundle/vala.vim"]
+	path = share/bundle/vala.vim
+	branch = master
+	url = https://github.com/arrufat/vala.vim

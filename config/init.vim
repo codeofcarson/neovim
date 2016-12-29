@@ -117,6 +117,13 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/site/ycm_extra_conf.py'
 "
 let g:EclimCompletionMethod = 'omnifunc'          " Required for YCM to work.
 
+" Signify
+" https://github.com/mhinz/vim-signify
+"
+" Indicates added, modified and removed lines based on data of an underlying
+" version control system.
+let g:signify_vcs_list = [ 'git' ]
+
 " Custom Code Folding
 "
 " Vim's default fold text isn't super useful, so we replace it with something
