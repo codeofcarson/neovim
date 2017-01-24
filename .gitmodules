@@ -57,3 +57,7 @@
 	path = share/bundle/vala.vim
 	branch = master
 	url = https://github.com/arrufat/vala.vim
+[submodule "share/bundle/vim-antlr"]
+	path = share/bundle/vim-antlr
+	url = https://github.com/dylon/vim-antlr
+	branch = master

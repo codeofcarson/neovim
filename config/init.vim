@@ -49,6 +49,9 @@ filetype indent on                                " Better indentation.
 filetype plugin on                                " Load filetype specific
                                                   " plugins.
 
+" Antlr Syntax
+au BufRead,BufNewFile *.g4 set filetype=antlr4    " Set filetype for *.g4 files
+
 " Highlight Trailing Whitespace
 "
 " Track which buffers have been created, and set the highlighting only once.
