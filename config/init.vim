@@ -115,6 +115,8 @@ set noshowmode                                    " Don't show mode in command l
 " Code completion, everywhere.
 nnoremap <leader>jd <Esc>:YcmCompleter GoTo<CR>   " Jump to definition.
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/site/ycm_extra_conf.py'
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
 
 " Eclim
 "
