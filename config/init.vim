@@ -89,7 +89,7 @@ endif
 " https://github.com/takac/vim-hardtime
 "
 " Break bad vim patterns, forces you to use better movement keys.
-autocmd VimEnter,BufNewFile,BufReadPost * silent! HardTimeOn
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! HardTimeOn
 nnoremap <leader>h <Esc>:HardTimeToggle<CR>       " Toggle hardtime with <leader>h.
 let g:hardtime_ignore_quickfix = 1                " Disable in quickfix windows.
 let g:hardtime_allow_different_key = 1            " Allow different keys in succession.
@@ -170,4 +170,17 @@ function! CustomFoldText()
   let expansionString = repeat(" ", w - strwidth(foldSizeStr.line))
   return line . expansionString . foldSizeStr
 endfunction
+" ****************
+" CARSON'S CONFIG
+" ****************
+
+" turn of line wrap
+set nowrap
+
+" Turn searc highlighting on
+set hlsearch
+
+" yanks, delete's and pastes now go to/from clipboard
+set clipboard=unnamed
+
 " vim: set et ts=2 sw=2:
